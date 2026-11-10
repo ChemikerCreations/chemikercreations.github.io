@@ -41,10 +41,17 @@
   /* ---------- intestazione ---------- */
   .hero{display:flex;gap:clamp(18px,3vw,34px);align-items:flex-start;flex-wrap:wrap;margin-bottom:clamp(34px,5vw,56px)}
   .portrait{
+    position:relative;flex:0 0 auto;
     width:clamp(76px,10vw,104px);height:clamp(76px,10vw,104px);border-radius:50%;
-    object-fit:cover;flex:0 0 auto;background:var(--line-soft);
-    border:3px solid #fff;box-shadow:0 6px 22px rgba(16,40,70,.14)
+    background:linear-gradient(145deg,#2f7fd6 0%,#0a4192 100%);
+    border:3px solid #fff;box-shadow:0 6px 22px rgba(16,40,70,.14);
+    display:flex;align-items:center;justify-content:center;overflow:hidden
   }
+  .portrait span{
+    font-family:var(--mono);font-size:clamp(22px,2.6vw,30px);font-weight:600;
+    letter-spacing:.04em;color:#fff;opacity:.92;user-select:none
+  }
+  .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
   .hero-txt{flex:1 1 320px;min-width:0}
   .eyebrow{
     font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;
@@ -88,7 +95,7 @@
     border-color:#d7d0c5;outline:none
   }
   .thumb{
-    position:relative;aspect-ratio:16/10;background:#eef2f7;
+    position:relative;aspect-ratio:16/10;max-height:240px;background:#eef2f7;
     border-bottom:1px solid var(--line-soft);overflow:hidden
   }
   .thumb svg{position:absolute;inset:0;width:100%;height:100%;display:block}
@@ -137,7 +144,10 @@
 <div class="wrap">
 
   <div class="hero">
-    <img class="portrait" src="https://avatars.githubusercontent.com/u/343562000?s=240&amp;v=4" alt="Chemiker" width="104" height="104" loading="eager">
+    <div class="portrait">
+      <span aria-hidden="true">CC</span>
+      <img src="https://avatars.githubusercontent.com/u/343562000?s=240&amp;v=4" alt="Chemiker" width="104" height="104" loading="eager" onerror="this.remove()">
+    </div>
     <div class="hero-txt">
       <p class="eyebrow">github.com/ChemikerCreations</p>
       <h1>Chemiker <em>Creations</em></h1>
@@ -311,19 +321,19 @@
         <div class="thumb" data-app="LFM">
           <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Sezione di discarica e frazioni recuperate">
             <rect width="400" height="250" fill="#f1ede5"/>
-            <path d="M0 96c46-26 104-34 168-22s118 2 154-14v190H0z" fill="#d9cdb6"/>
-            <path d="M0 132c52-22 108-24 166-12s112 0 156-16v146H0z" fill="#c6b79b"/>
-            <path d="M0 170c56-18 110-16 166-6s110-4 156-18v104H0z" fill="#b0a184"/>
-            <path d="M0 206c58-14 112-10 168 0s108-8 152-18v62H0z" fill="#95876c"/>
-            <g stroke="#8a7b60" stroke-width="1" stroke-dasharray="4 4" fill="none" opacity=".55">
-              <path d="M0 114h380M0 150h380M0 188h380"/>
+            <path d="M0 104c46-26 104-34 168-22s118 2 154-14l78-10V250H0z" fill="#d9cdb6"/>
+            <path d="M0 140c52-22 108-24 166-12s112 0 156-16l78-8V250H0z" fill="#c6b79b"/>
+            <path d="M0 178c56-18 110-16 166-6s110-4 156-18l78-6V250H0z" fill="#b0a184"/>
+            <path d="M0 214c58-14 112-10 168 0s108-8 152-18l80-6V250H0z" fill="#95876c"/>
+            <g stroke="#8a7b60" stroke-width="1" stroke-dasharray="4 4" fill="none" opacity=".5">
+              <path d="M0 124h400M0 160h400M0 198h400"/>
             </g>
-            <g transform="translate(252 44)">
-              <rect x="0" y="0" width="22" height="58" rx="3" fill="#2f7fd6"/>
-              <rect x="30" y="18" width="22" height="40" rx="3" fill="#6ea9df"/>
-              <rect x="60" y="30" width="22" height="28" rx="3" fill="#c2743a"/>
-              <rect x="90" y="40" width="22" height="18" rx="3" fill="#95876c"/>
-              <path d="M-8 58h128" stroke="#9c8f74" stroke-width="1.6"/>
+            <g transform="translate(264 16)">
+              <rect x="0" y="4" width="20" height="52" rx="3" fill="#2f7fd6"/>
+              <rect x="28" y="18" width="20" height="38" rx="3" fill="#6ea9df"/>
+              <rect x="56" y="30" width="20" height="26" rx="3" fill="#c2743a"/>
+              <rect x="84" y="40" width="20" height="16" rx="3" fill="#95876c"/>
+              <path d="M-6 56h116" stroke="#9c8f74" stroke-width="1.6"/>
             </g>
             <g font-family="monospace" font-size="11" fill="#7d7158">
               <text x="16" y="30">700.000 t</text>
